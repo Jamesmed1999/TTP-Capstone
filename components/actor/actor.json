@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_actor_actors",
+  "info": {
+    "name": "actor",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "actor_name": {
+      "type": "string"
+    }
+  }
+}

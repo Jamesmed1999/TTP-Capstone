@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "login_users",
+  "info": {
+    "name": "login_users"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "email": {
+      "type": "email"
+    },
+    "createdAT": {
+      "type": "date"
+    }
+  }
+}

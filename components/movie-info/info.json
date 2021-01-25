@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_movie_info_infos",
+  "info": {
+    "name": "info",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "director": {
+      "type": "string"
+    },
+    "genre": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "avaliableon": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "actor.actor"
+    }
+  }
+}
