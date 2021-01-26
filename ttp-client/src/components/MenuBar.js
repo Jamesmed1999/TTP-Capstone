@@ -1,7 +1,10 @@
+//done-ish, implement sidebar and search
+
 import React, { useContext, useState } from 'react'
-import { Menu } from "semantic-ui-react"
+import { Input, Menu } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 import { AuthContext } from '../context/auth';
+import SearchForm from './SearchForm'
 
 function MenuBar() {
     const { user, logout } = useContext(AuthContext);
@@ -13,7 +16,7 @@ function MenuBar() {
     const handleItemClick = (e, { name }) => setActiveItem(name);
 
     const menuBar = user ? (
-        <Menu pointing secondary>
+        <Menu pointing secondary size="massive">
             <Menu.Item
                 name={user.username}
                 active
@@ -28,7 +31,11 @@ function MenuBar() {
             </Menu.Menu>
         </Menu>
     ) : (
-            <Menu pointing secondary>
+            <Menu pointing secondary size="massive">
+                <Menu.Item
+                    icon="list"
+                    onClick={handleItemClick} /* onclick opens sidebar */
+                />
                 <Menu.Item
                     name='home'
                     active={activeItem === 'home'}
@@ -37,13 +44,11 @@ function MenuBar() {
                     to="/"
                 />
                 <Menu.Menu position='right'>
-                    <Menu.Item
-                        name='register'
-                        active={activeItem === 'register'}
-                        onClick={handleItemClick}
-                        as={Link}
-                        to="/register"
-                    />
+                    <Menu.Item>
+                        <SearchForm />
+                    </Menu.Item>
+                </Menu.Menu>
+                <Menu.Menu position='right'>
                     <Menu.Item
                         name='login'
                         active={activeItem === 'login'}
@@ -51,21 +56,16 @@ function MenuBar() {
                         as={Link}
                         to="/login"
                     />
+                    <Menu.Item
+                        name='register'
+                        active={activeItem === 'register'}
+                        onClick={handleItemClick}
+                        as={Link}
+                        to="/register"
+                    />
                 </Menu.Menu>
             </Menu>
         )
     return menuBar;
 }
 export default MenuBar;
-
-/* thats
-git add.
-git commit -m "working menubar" 
-he said put it in another branch i think? yeah
-git checkout -b side
-git remote add origin https://github.com/Jamesmed1999/TTP-Capstone.git
-git push -u origin main
-i think thats it?
-k thanks, im not goot at git
-its cool
-*/
