@@ -11,14 +11,12 @@
 import React from "react";
 
 function SearchForm(props) {
-    function onSubmit(event) {
-        event.preventDefault();
 
+    function onSubmit() {
             fetch(
                 "https://api.themoviedb.org/3/movie/550?api_key=a65f9b291a589567b929f15ba75cf51a"
             )
                 .then((response) => response.json())
-                .then((res) => props.setImgs(res.data));
     }
 
     return (
@@ -26,7 +24,7 @@ function SearchForm(props) {
             <form id="form1" name="form">
                 <input type="text" id="forChar"></input>
             </form>
-            <button onClick={(e) => onSubmit(e, 0)}>Search</button>
+            <button onClick={onSubmit}>Search</button>
         </div>
     );
 }

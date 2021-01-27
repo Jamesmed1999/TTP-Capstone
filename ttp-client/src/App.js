@@ -8,16 +8,14 @@ import Register from "./pages/Register";
 import singleMovie from "./pages/SingleMovie";
 //import { Container } from "semantic-ui-react";
 import MenuBar from "./components/MenuBar";
-/* import SideBar from "./components/SideBar";
- */
+
 function App() {
 
   return (
     <div className="App">
 
       <Router>
-        <MenuBar />{/* 
-        <SideBar/> */}
+        <MenuBar />
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />

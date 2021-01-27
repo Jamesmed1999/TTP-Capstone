@@ -8,6 +8,8 @@ import { AuthContext } from '../context/auth'
 import Review from '../scrapped/Review'
 //import {FETCH_REVIEWS_QUERY}from'util/grapql'
 
+import SideBar from "../components/SideBar";
+
 function Home() {
     /* const { user } = useContext(AuthContext);
     const {
@@ -18,7 +20,6 @@ function Home() {
     return (
         <div>
             <h1>Home</h1>
-            {/* <MovieCard/> */}
             <Grid container columns={4}>
                 <Grid.Column>
                     <MovieCard />
