@@ -13,10 +13,10 @@ class SideBar extends Component {
         super(props)
         this.state = {
             visible: false,
-            genreId: ''
+            // genreId: ''
         }
 
-        this.setGenre = this.setGenre.bind(this)
+        //this.setGenre = this.setGenre.bind(this)
         this.onClickCollapseSideBar = this.onClickCollapseSideBar.bind(this)
 
         store.subscribe(() => {
@@ -40,13 +40,15 @@ class SideBar extends Component {
 
     //[name, setGenres]=useState([])
 
-    getGenres = () => {
-        fetch("https://api.themoviedb.org/3/discover/movie?api_key=a65f9b291a589567b929f15ba75cf51a&with_genres=" + genreId)
-            .then((res) => res.json())
-            .then((data) => {
-                setGenre(data.genre_ids)
-            })
-    }
+    
+
+    // getGenres = () => {
+    //     fetch("https://api.themoviedb.org/3/discover/movie?api_key=a65f9b291a589567b929f15ba75cf51a&with_genres=" + genreId)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             setGenre(data.genre_ids)
+    //         })
+    // }
 
     // GenreId = ({ name }) => {
     //     <App />
@@ -78,9 +80,7 @@ class SideBar extends Component {
                             <h3>Genres</h3>
                         </Menu.Item>
 
-                        <Menu.Item as='a'
-                        //onClick={<>}
-                        >
+                        <Menu.Item as='a'>
                             Action <br /><br /> {/* 28 */}
                         </Menu.Item>
                         <Menu.Item as='a'>
