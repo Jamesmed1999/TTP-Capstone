@@ -1,41 +1,39 @@
-//shows in home
+import React from 'react'
 
-// dependecy 'moment' does the date and time thing for createdAt
-import React, { useContext } from 'react';
-import { Card, Icon, Label, Image, Button } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+const imag = "https://image.tmdb.org/t/p/w1280"
 
-import { AuthContext } from '../context/auth';
-/* import LikeButton from '../components/LikeButton';
-import DeleteButton from '../components/DeleteButton';
-import MyPopup from '../utils/MyPopup'; */ //display of moviecards; this will be in the singlemovie.js maybe?
-
-//similar to gifcard in assignment-7
-
-function MovieCard() {
-
-  const { user } = useContext(AuthContext);
-
-  return (
-    <Card>
-      <Image src='https://images-na.ssl-images-amazon.com/images/I/61OUGpUfAyL._AC_SL1000_.jpg' wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>Avatar</Card.Header>
-        {/* <Card.Meta>
-          <span className='date'>2009</span>
-        </Card.Meta>
-        <Card.Description>
-          Def not description; too little space; runtime? or maybe just name and likes, i was thinking this too
-        </Card.Description> */}
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name='thumbs up' />
-          10 likes // or genre or whatever
-        </a>
-      </Card.Content>
-    </Card>
-  )
+const setVoteClass = (vote) => {
+    if (vote >= 7) {
+        return 'green'
+    } else if (vote >= 5) {
+        return 'orange'
+    } else {
+        return 'red'
+    }
 }
 
-export default MovieCard;
+
+const MovieCard =
+    ({ title, poster_path, overview, vote_average, release_date }) => (
+        <div className="movie">
+            <img src={imag + poster_path} alt={title} />
+            <div className="movie-info">
+                <h3>{title}</h3>
+                <span className={`tag ${setVoteClass(vote_average)}`}>
+                    {vote_average}
+                </span>
+            </div>
+
+            <div className="movie-over">
+                <h3>Description: </h3>
+                <p className="word">{overview}</p>
+                <p className="word">Releae Date: {release_date}</p>
+            </div>
+
+
+        </div>
+    )
+
+
+
+export default MovieCard
